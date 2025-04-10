@@ -29,3 +29,14 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 -- vim.opt.colorcolumn = "80"
+-- Set search result highlight to orange background with black text
+vim.keymap.set("n", "<Esc>", "<cmd>noh<CR><Esc>")
+
+vim.opt.guicursor = {
+  "n-v-c:block",       -- Normal, visual, command modes
+  "i-ci-ve:block",     -- Insert, command-line insert, visual-exclusive
+  "r-cr:block",        -- Replace modes
+  "o:block",           -- Operator-pending
+  "sm:block"           -- Showmatch (briefly shows matching paren)
+}
+
