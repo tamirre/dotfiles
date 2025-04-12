@@ -87,7 +87,7 @@ _G.packer_plugins = {
   gruvbox = {
     loaded = true,
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
+    url = "https://github.com/rafamadriz/gruvbox"
   },
   ["nvim-cmp"] = {
     loaded = true,

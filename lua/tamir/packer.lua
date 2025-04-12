@@ -16,7 +16,8 @@ return require('packer').startup(function(use)
   }
 
   -- use {'srcery-colors/srcery-vim', as = 'srcery'}
-  use {'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
+  -- use {'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
+  use {'rafamadriz/gruvbox', as = 'gruvbox' }
 
   use {
 	  'nvim-treesitter/nvim-treesitter',
