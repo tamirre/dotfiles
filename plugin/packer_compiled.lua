@@ -82,12 +82,12 @@ _G.packer_plugins = {
   ["feline.nvim"] = {
     loaded = true,
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/feline.nvim",
-    url = "https://github.com/feline-nvim/feline.nvim"
+    url = "https://github.com/famiu/feline.nvim"
   },
   gruvbox = {
     loaded = true,
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/rafamadriz/gruvbox"
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,

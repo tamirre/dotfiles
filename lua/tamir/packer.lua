@@ -7,7 +7,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   
-  use 'feline-nvim/feline.nvim'
+  -- use 'feline-nvim/feline.nvim'
+  use 'famiu/feline.nvim'
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
@@ -16,8 +17,8 @@ return require('packer').startup(function(use)
   }
 
   -- use {'srcery-colors/srcery-vim', as = 'srcery'}
-  -- use {'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
-  use {'rafamadriz/gruvbox', as = 'gruvbox' }
+  use {'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
+  -- use {'rafamadriz/gruvbox', as = 'gruvbox' }
 
   use {
 	  'nvim-treesitter/nvim-treesitter',
