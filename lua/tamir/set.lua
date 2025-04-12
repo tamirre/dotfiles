@@ -40,3 +40,6 @@ vim.opt.guicursor = {
   "sm:block"           -- Showmatch (briefly shows matching paren)
 }
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
