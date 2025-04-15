@@ -77,3 +77,12 @@ end)
 
 -- Disable Ctrl-Z (suspend)
 vim.keymap.set('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>gt', function()
+  -- Open a horizontal split at the bottom with 5 lines height
+  vim.cmd('belowright 5split')
+  -- Open terminal in the new split
+  vim.cmd('term bash')
+  -- Run the gcc command in the terminal
+  -- vim.cmd('call feedkeys("gcc -o asteroids asteroids.c -lraylib -lm -ldl -lpthread -lGL\\n")')
+end, { noremap = true, silent = true })
