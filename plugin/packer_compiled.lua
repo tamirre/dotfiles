@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/tamir/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/theprimeagen/harpoon"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/nvim-cmp",
