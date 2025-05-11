@@ -21,7 +21,7 @@ end)
 
 -- greatest remap ever
 -- vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set("x", "<leader>p", [["+P]])
+vim.keymap.set("n", "<leader>p", '"+P')
 
 
 -- next greatest remap ever : asbjornHaland
