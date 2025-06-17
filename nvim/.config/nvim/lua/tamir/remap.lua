@@ -80,6 +80,7 @@ end)
 -- Disable Ctrl-Z (suspend)
 vim.keymap.set('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>fp', function() print(vim.fn.expand("%:p")) end, { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>gt', function()
   -- Open a horizontal split at the bottom with 5 lines height
   vim.cmd('belowright 5split')
