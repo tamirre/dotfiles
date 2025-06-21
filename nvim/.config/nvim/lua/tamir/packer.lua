@@ -11,14 +11,13 @@ return require('packer').startup(function(use)
   use 'famiu/feline.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+   'nvim-telescope/telescope.nvim', tag = '0.1.8',
+   -- or                            , branch = '0.1.x',
+   requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- use {'srcery-colors/srcery-vim', as = 'srcery'}
   use {'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
-  -- use {'rafamadriz/gruvbox', as = 'gruvbox' }
 
   use {
 	  'nvim-treesitter/nvim-treesitter',
@@ -32,4 +31,10 @@ return require('packer').startup(function(use)
   use({'neovim/nvim-lspconfig'})
   use({'hrsh7th/nvim-cmp'})
   use({'hrsh7th/cmp-nvim-lsp'})
+  use {
+      "supermaven-inc/supermaven-nvim",
+      config = function()
+          require("supermaven-nvim").setup({})
+      end,
+  }
 end)
