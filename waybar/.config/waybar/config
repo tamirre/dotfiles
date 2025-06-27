@@ -4,8 +4,8 @@
     "height": 29,
     "spacing": 5,
 
-    "modules-left": ["hyprland/workspaces", "memory", "temperature"],
-    "modules-center": ["custom/user"],
+    "modules-left": ["hyprland/workspaces", "cpu", "memory", "temperature"],
+    "modules-center": ["user"],
     "modules-right": ["wireplumber", "battery", "network", "bluetooth", "clock"],
 
     "hyprland/workspaces": {
@@ -26,7 +26,7 @@
         }
     },
 
-    "custom/user": {
+    "user": {
         "exec": "sh -c 'echo $(whoami)@$(cat /etc/hostname)'",
         "format": "{}",
         "interval": 600  // update every 10 minutes
@@ -52,6 +52,12 @@
 
     "backlight": {
         "format": "\udb80\udcdf  {percent}%"
+    },
+
+    "cpu": {
+        "exec": "top -bn1 | grep '%Cpu' | awk '{print $2+$4}'",
+        "format": "\uf2db  {}%",  // Font Awesome icon for CPU
+        "interval": 5
     },
 
     "memory": {

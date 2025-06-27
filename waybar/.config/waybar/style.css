@@ -28,6 +28,9 @@
     padding-left: 1em
 }
 
+#cpu {
+    padding-left: 1em
+}
 #wireplumber,
 #battery,
 #backlight,
