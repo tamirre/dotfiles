@@ -23,6 +23,9 @@ require'nvim-treesitter.configs'.setup {
   },
 
   vim.filetype.add({
+      filename = {
+          ["hydro"] = "tcl",
+      },
       extension = {
           f90 = "fortran",
           f95 = "fortran",

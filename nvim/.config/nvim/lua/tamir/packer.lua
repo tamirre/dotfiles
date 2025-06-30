@@ -31,23 +31,54 @@ return require('packer').startup(function(use)
   use({'neovim/nvim-lspconfig'})
   use({'hrsh7th/nvim-cmp'})
   use({'hrsh7th/cmp-nvim-lsp'})
-  use {
-      'huggingface/llm.nvim',
-      config = function()
-          require('llm').setup({
-              {
-                  model = "codellama:7b",
-                  url = "http://localhost:11434", -- llm-ls uses "/api/generate"
-                  -- cf https://github.com/ollama/ollama/blob/main/docs/api.md#parameters
-                  request_body = {
-                      -- Modelfile options for the model you use
-                      options = {
-                          temperature = 0.2,
-                          top_p = 0.95,
-                      }
-                  }
-              }
-          })
-      end
-  }
+  -- -- Minuet AI
+  -- use {
+  --     'milanglacier/minuet-ai.nvim',
+  --     config = function()
+  --         require('minuet').setup {
+  --             provider = 'openai_fim_compatible',
+  --             n_completions = 1, -- recommend for local model for resource saving
+  --             -- I recommend beginning with a small context window size and incrementally
+  --             -- expanding it, depending on your local computing power. A context window
+  --             -- of 512, serves as an good starting point to estimate your computing
+  --             -- power. Once you have a reliable estimate of your local computing power,
+  --             -- you should adjust the context window to a larger value.
+  --             context_window = 256,
+  --             provider_options = {
+  --                 openai_fim_compatible = {
+  --                     -- For Windows users, TERM may not be present in environment variables.
+  --                     -- Consider using APPDATA instead.
+  --                     api_key = 'TERM',
+  --                     name = 'Ollama',
+  --                     end_point = 'http://localhost:11434/v1/completions',
+  --                     model = 'qwen2.5-coder:1.5b',
+  --                     optional = {
+  --                         stream = true,
+  --                         max_tokens = 56,
+  --                         top_p = 0.9,
+  --                     },
+  --                 },
+  --             },
+  --             virtualtext = {
+  --                 auto_trigger_ft = {'lua', 'tcl', 'fortran'},
+  --                 keymap = {
+  --                     -- accept whole completion
+  --                     accept = '<A-a>',
+  --                     -- accept one line
+  --                     accept_line = '<A-A>',
+  --                     -- accept n lines (prompts for number)
+  --                     -- e.g. "A-z 2 CR" will accept 2 lines
+  --                     accept_n_lines = '<A-z>',
+  --                     -- Cycle to prev completion item, or manually invoke completion
+  --                     prev = '<A-[>',
+  --                     -- Cycle to next completion item, or manually invoke completion
+  --                     next = '<A-]>',
+  --                     dismiss = '<A-e>',
+  --                 },
+  --             },
+  --         }
+  --     end
+  -- }
+  -- -- Plenary (dependency)
+  -- use 'nvim-lua/plenary.nvim'
 end)

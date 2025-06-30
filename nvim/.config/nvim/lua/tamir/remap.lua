@@ -23,7 +23,6 @@ end)
 -- vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>p", '"+P')
 
-
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -81,11 +80,28 @@ end)
 vim.keymap.set('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fp', function() print(vim.fn.expand("%:p")) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>gt', function()
-  -- Open a horizontal split at the bottom with 5 lines height
-  vim.cmd('belowright 5split')
-  -- Open terminal in the new split
-  vim.cmd('term bash')
-  -- Run the gcc command in the terminal
-  -- vim.cmd('call feedkeys("gcc -o asteroids asteroids.c -lraylib -lm -ldl -lpthread -lGL\\n")')
-end, { noremap = true, silent = true })
+local job_id = 0
+vim.keymap.set('n', '<leader>st', function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 5)
+    job_id = vim.bo.channel
+end)
+
+vim.keymap.set('n', '<leader>tt', function()
+    -- vim.fn.chansend(job_id, { "ls -al\r\n" })
+
+    vim.fn.chansend(job_id, { "export LMTDIR=/u/tamir/lmt\r\n" })
+    vim.fn.chansend(job_id, { "export LMTSYS=linux_n64_omp_i16_g44\r\n" })
+    vim.fn.chansend(job_id, { "cd ~/Tutorial/Jobs/2025.1_rc2_rhel8.10/\r\n" })
+    vim.fn.chansend(job_id, { "$LMTDIR/bin/xpost &\r\n" })
+end)
+-- vim.keymap.set('n', '<Leader>gt', function()
+--   -- Open a horizontal split at the bottom with 5 lines height
+--   vim.cmd('belowright 5split')
+--   -- Open terminal in the new split
+--   vim.cmd('term bash')
+--   -- Run the gcc command in the terminal
+--   -- vim.cmd('call feedkeys("gcc -o asteroids asteroids.c -lraylib -lm -ldl -lpthread -lGL\\n")')
+-- end, { noremap = true, silent = true })

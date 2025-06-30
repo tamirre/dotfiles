@@ -10,8 +10,8 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = true
-vim.opt.linebreak = true
+-- vim.opt.wrap = true
+-- vim.opt.linebreak = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -43,4 +43,7 @@ vim.opt.guicursor = {
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.g.netrw_liststyle = 1        -- Long listing format
+vim.g.netrw_sizestyle = "H"      -- Human-readable file sizes
 
