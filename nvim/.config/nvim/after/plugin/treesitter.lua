@@ -33,6 +33,7 @@ require'nvim-treesitter.configs'.setup {
           f08 = "fortran",
           t = "tcl",
           gnu = "gnuplot",
+          gp = "gnuplot",
       }
   })
 

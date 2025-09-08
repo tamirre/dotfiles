@@ -6,7 +6,15 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
+
+-- special case for .changes:
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile"}, {
+  pattern = "*.changes",
+  callback = function()
+    vim.opt.expandtab = false
+  end,
+})
 
 vim.opt.smartindent = true
 
@@ -47,3 +55,11 @@ vim.opt.smartcase = true
 vim.g.netrw_liststyle = 1        -- Long listing format
 vim.g.netrw_sizestyle = "H"      -- Human-readable file sizes
 
+-- Green background for added lines
+vim.cmd("highlight DiffAdd    guibg=#1e3f1e guifg=#a8ff60")
+-- Red background for removed lines
+vim.cmd("highlight DiffDelete guibg=#3f1e1e guifg=#ff6060")
+-- Yellow-ish for changes
+vim.cmd("highlight DiffChange guibg=#3f3f1e guifg=#ffffa8")
+-- Brighter yellow for changed text
+vim.cmd("highlight DiffText   guibg=#5f5f00 guifg=#ffff00 gui=bold")

@@ -46,12 +46,13 @@ vim.diagnostic.config({
 -- These are example language servers. 
 -- require('lspconfig').gleam.setup({})
 -- require('lspconfig').ocamllsp.setup({})
+-- local uname = vim.loop.os_uname()
 require('lspconfig').clangd.setup({
-  root_dir = require('lspconfig.util').root_pattern(
-    "compile_commands.json",
-    "compile_flags.txt",
-    ".git"
-  ),
+	root_dir = require('lspconfig.util').root_pattern(
+		"compile_commands.json",
+		"compile_flags.txt",
+		".git"
+	),
 })
 
 local cmp = require('cmp')
