@@ -10,7 +10,7 @@ require('telescope').setup{
             "%.jpg", "%.jpeg", "%.png", "%.gif",  -- ignore image files
             "%.aseprite", 
             "%.lib", "%.dll", "%.exe",
-            "%.lock", "%.tbc", "%.tcl~", "%.diff", "%.tcl#"
+            "%.lock", "%.tbc", "%.tcl~", "%.tcl#"
         },
     }
 }
