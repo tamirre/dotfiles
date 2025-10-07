@@ -63,3 +63,6 @@ vim.cmd("highlight DiffDelete guibg=#3f1e1e guifg=#ff6060")
 vim.cmd("highlight DiffChange guibg=#3f3f1e guifg=#ffffa8")
 -- Brighter yellow for changed text
 vim.cmd("highlight DiffText   guibg=#5f5f00 guifg=#ffff00 gui=bold")
+
+vim.g.fortran_free_source = 1
+vim.g.fortran_fixed_source = 0

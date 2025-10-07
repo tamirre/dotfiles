@@ -31,6 +31,17 @@ return require('packer').startup(function(use)
   use({'neovim/nvim-lspconfig'})
   use({'hrsh7th/nvim-cmp'})
   use({'hrsh7th/cmp-nvim-lsp'})
+  
+  require("packer").startup(function()
+	  use({
+		  "stevearc/resession.nvim",
+		  config = function()
+			  require("resession").setup()
+		  end,
+	  })
+  end)
+
+
   -- -- Minuet AI
   -- use {
   --     'milanglacier/minuet-ai.nvim',

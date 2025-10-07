@@ -35,6 +35,11 @@ require'nvim-treesitter.configs'.setup {
           gnu = "gnuplot",
           gp = "gnuplot",
       }
+  }),
+  vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+	  pattern = {"*.f", "*.f90","*.f95","*.f03"},
+	  callback = function()
+		  vim.b.fortran_free_source = true
+	  end
   })
-
 }
