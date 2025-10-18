@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
   use({'neovim/nvim-lspconfig'})
   use({'hrsh7th/nvim-cmp'})
   use({'hrsh7th/cmp-nvim-lsp'})
-  
+
   require("packer").startup(function()
 	  use({
 		  "stevearc/resession.nvim",
@@ -41,6 +41,12 @@ return require('packer').startup(function(use)
 	  })
   end)
 
+  use {
+      "supermaven-inc/supermaven-nvim",
+      config = function()
+          require("supermaven-nvim").setup({})
+      end,
+  }
 
   -- -- Minuet AI
   -- use {
