@@ -32,14 +32,12 @@ return require('packer').startup(function(use)
   use({'hrsh7th/nvim-cmp'})
   use({'hrsh7th/cmp-nvim-lsp'})
 
-  require("packer").startup(function()
-	  use({
-		  "stevearc/resession.nvim",
-		  config = function()
-			  require("resession").setup()
-		  end,
-	  })
-  end)
+  use({
+	  "stevearc/resession.nvim",
+	  config = function()
+		  require("resession").setup()
+	  end,
+  })
 
   use {
       "supermaven-inc/supermaven-nvim",
