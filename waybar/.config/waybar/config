@@ -54,11 +54,11 @@
         "format": "\udb80\udcdf  {percent}%"
     },
 
-    "cpu": {
-        "exec": "top -bn1 | grep '%Cpu' | awk '{print $2+$4}'",
-        "format": "\uf2db  {}%",  // Font Awesome icon for CPU
-        "interval": 5
-    },
+	"cpu": {
+		"format": "\uf2db  {usage}%",
+		"max-length": 10,
+		"interval": 3
+	},
 
     "memory": {
         "interval": 30,
