@@ -76,6 +76,65 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-nvim-lsp"] = {
     loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["feline.nvim"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/feline.nvim",
+    url = "https://github.com/famiu/feline.nvim"
+  },
+  ["fortran.nvim"] = {
+    config = { "\27LJ\2\nù\3\0\0\5\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0=\4\a\0034\4\0\0=\4\b\3=\3\n\0025\3\v\0004\4\0\0=\4\5\3=\3\f\2B\0\2\1K\0\1\0\19formatter_opts\1\0\4\targs\0\fenabled\1\19format_on_save\1\tpath\14fprettify\topts\1\0\2\topts\0\19formatter_opts\0\rsettings\14filetypes\1\2\0\0\ffortran\targs\1\a\0\0\18--notify_init\27--lowercase_intrinsics\22--hover_signature\29--hover_language=fortran\25--use_signature_help\26--enable_code_actions\1\0\5\targs\0\fenabled\2\rsettings\0\14filetypes\0\tpath\vfortls\nsetup\ffortran\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/opt/fortran.nvim",
+    url = "https://github.com/wassup05/fortran.nvim"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["packer.nvim"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["resession.nvim"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14resession\frequire\0" },
+    loaded = true,
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
@@ -134,16 +193,19 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/tamir/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   undotree = {
     loaded = true,
-    path = "/home/tamir/.local/share/nvim/site/pack/packer/start/undotree",
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/tamir/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    path = "/u/tamir/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   }
 }
@@ -157,6 +219,18 @@ time([[Config for supermaven-nvim]], false)
 time([[Config for resession.nvim]], true)
 try_loadstring("\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14resession\frequire\0", "config", "resession.nvim")
 time([[Config for resession.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType fortran ++once lua require("packer.load")({'fortran.nvim'}, { ft = "fortran" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /u/tamir/.local/share/nvim/site/pack/packer/opt/fortran.nvim/ftdetect/fypp.vim]], true)
+vim.cmd [[source /u/tamir/.local/share/nvim/site/pack/packer/opt/fortran.nvim/ftdetect/fypp.vim]]
+time([[Sourcing ftdetect script at: /u/tamir/.local/share/nvim/site/pack/packer/opt/fortran.nvim/ftdetect/fypp.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

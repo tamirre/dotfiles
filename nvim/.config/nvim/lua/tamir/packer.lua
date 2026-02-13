@@ -31,6 +31,37 @@ return require('packer').startup(function(use)
   use({'neovim/nvim-lspconfig'})
   use({'hrsh7th/nvim-cmp'})
   use({'hrsh7th/cmp-nvim-lsp'})
+  
+  use {
+	  'wassup05/fortran.nvim',
+	  ft = { 'fortran' },
+	  config = function()
+		  require('fortran').setup({
+			  opts = {
+				  enabled = true,
+				  path = "fortls",
+				  args = {
+					  "--notify_init",
+					  "--lowercase_intrinsics",
+					  "--hover_signature",
+					  "--hover_language=fortran",
+					  "--use_signature_help",
+					  "--enable_code_actions",
+				  },
+				  filetypes = { "fortran" },
+				  settings = {},
+			  },
+			  formatter_opts = {
+				  enabled = false,
+				  path = "fprettify",
+				  format_on_save = false,
+				  args = {
+					  -- fprettify args go here exactly as you would pass them to fprettify
+				  },
+			  },
+		  })
+	  end
+  }
 
   use({
 	  "stevearc/resession.nvim",
@@ -45,6 +76,12 @@ return require('packer').startup(function(use)
           require("supermaven-nvim").setup({})
       end,
   }
+
+
+  use({'mfussenegger/nvim-lint'})
+  -- require("packer").startup(function()
+  --  })
+  -- end)
 
   -- -- Minuet AI
   -- use {

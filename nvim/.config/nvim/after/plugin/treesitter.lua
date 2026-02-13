@@ -19,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
 
   vim.filetype.add({
@@ -27,19 +27,28 @@ require'nvim-treesitter.configs'.setup {
           ["hydro"] = "tcl",
       },
       extension = {
+          f77 = "fortran",
           f90 = "fortran",
           f95 = "fortran",
           f03 = "fortran",
           f08 = "fortran",
+		  f = "fortran",
+		  F = "fortran",
           t = "tcl",
           gnu = "gnuplot",
           gp = "gnuplot",
       }
   }),
   vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
-	  pattern = {"*.f", "*.f90","*.f95","*.f03"},
-	  callback = function()
-		  vim.b.fortran_free_source = true
-	  end
-  })
+   pattern = {"*.f", "*.f90","*.f95","*.f03"},
+   callback = function()
+	   vim.b.fortran_free_source = true
+	   -- Add highlighting for fixed-form comments
+	   vim.cmd([[syntax match fortranFixedComment /^[Cc\*].*/]])
+	   vim.cmd([[highlight link fortranFixedComment Comment]])
+   end
+  }),
+  vim.api.nvim_set_hl(0, "@diff.plus",  { fg = "#00ff00" }),  -- semi-transparent green
+  vim.api.nvim_set_hl(0, "@diff.minus", { fg = "#ff0000" }),  -- semi-transparent red
+  vim.api.nvim_set_hl(0, "@diff.delta", { fg = "#444400" })  -- semi-transparent yellow
 }

@@ -71,3 +71,6 @@ vim.keymap.set("n", "<leader>b", function()
   local file = vim.fn.expand("%")
   vim.fn.system("tmux send-keys -t :.1 './build.sh' C-m")
 end)
+
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nowrap ro'
+vim.g.netrw_timefmt = "%Y-%m-%d %H:%M"
