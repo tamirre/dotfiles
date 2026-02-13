@@ -47,12 +47,23 @@ vim.diagnostic.config({
 -- require('lspconfig').gleam.setup({})
 -- require('lspconfig').ocamllsp.setup({})
 -- local uname = vim.loop.os_uname()
-require('lspconfig').clangd.setup({
-	root_dir = require('lspconfig.util').root_pattern(
-		"compile_commands.json",
-		"compile_flags.txt",
-		".git"
-	),
+-- require('lspconfig').clangd.setup({
+-- 	root_dir = require('lspconfig.util').root_pattern(
+-- 		"compile_commands.json",
+-- 		"compile_flags.txt",
+-- 		".git"
+-- 	),
+-- })
+
+local configs = vim.lsp.configs
+vim.lsp.start({
+    name = "clangd",
+    cmd = { "clangd" },
+    root_dir = require('lspconfig.util').root_pattern(
+        "compile_commands.json",
+        "compile_flags.txt",
+        ".git"
+    ),
 })
 
 local cmp = require('cmp')
