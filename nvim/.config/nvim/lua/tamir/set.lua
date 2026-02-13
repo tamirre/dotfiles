@@ -66,3 +66,8 @@ vim.cmd("highlight DiffText   guibg=#5f5f00 guifg=#ffff00 gui=bold")
 
 vim.g.fortran_free_source = 1
 vim.g.fortran_fixed_source = 0
+
+vim.keymap.set("n", "<leader>b", function()
+  local file = vim.fn.expand("%")
+  vim.fn.system("tmux send-keys -t :.1 './build.sh' C-m")
+end)
