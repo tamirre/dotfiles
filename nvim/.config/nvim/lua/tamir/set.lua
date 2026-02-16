@@ -71,6 +71,15 @@ vim.keymap.set("n", "<leader>b", function()
   local file = vim.fn.expand("%")
   vim.fn.system("tmux send-keys -t :.1 './build.sh' C-m")
 end)
+vim.keymap.set("n", "<leader>r", function()
+  local file = vim.fn.expand("%")
+  -- vim.fn.system("tmux send-keys -t :.1 C-u './build.sh && ./asteroids' C-m")
+  -- vim.fn.system("tmux send-keys -t :.1 -X cancel \\; send-keys -t :.1 './build.sh && ./asteroids' C-m")
+  vim.fn.system("tmux copy-mode -q -t :.1")
+  vim.fn.system("tmux send-keys -t :.1 './build.sh && ./asteroids' C-m")
+  -- vim.fn.system("tmux send-keys -t :.1 C-c './build.sh && ./asteroids' C-m")
+
+end)
 
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nowrap ro'
 vim.g.netrw_timefmt = "%Y-%m-%d %H:%M"
