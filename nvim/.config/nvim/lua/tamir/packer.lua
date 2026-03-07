@@ -79,6 +79,13 @@ return require('packer').startup(function(use)
 
 
   use({'mfussenegger/nvim-lint'})
+  use({
+	  "kdheepak/lazygit.nvim",
+	  -- optional for floating window border decoration
+	  requires = {
+		  "nvim-lua/plenary.nvim",
+	  },
+  })
   -- require("packer").startup(function()
   --  })
   -- end)
