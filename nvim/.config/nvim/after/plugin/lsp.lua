@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
         local opts = {buffer = event.buf}
-
         vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
         vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
         vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
@@ -41,30 +40,18 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = true,
 })
--- You'll find a list of language servers here:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
--- These are example language servers. 
--- require('lspconfig').gleam.setup({})
--- require('lspconfig').ocamllsp.setup({})
--- local uname = vim.loop.os_uname()
--- require('lspconfig').clangd.setup({
--- 	root_dir = require('lspconfig.util').root_pattern(
--- 		"compile_commands.json",
--- 		"compile_flags.txt",
--- 		".git"
--- 	),
--- })
-
-local configs = vim.lsp.configs
-vim.lsp.start({
-    name = "clangd",
-    cmd = { "clangd" },
-    root_dir = require('lspconfig.util').root_pattern(
-        "compile_commands.json",
-        "compile_flags.txt",
-        ".git"
-    ),
+-- local lspconfig = require 'lspconfig'
+-- lspconfig.clangd.setup {
+--     cmd = {'clangd'}, -- Add more strings to the dictionary for addition command line args
+-- 	capabilities = capabilities, 
+-- 	on_attach = on_attach, 
+-- }
+vim.lsp.config("clangd", {
+  flags = { 
+	  cmd = {'clangd'}
+  }
 })
+vim.lsp.enable({"clangd"})
 
 local cmp = require('cmp')
 cmp.setup({
