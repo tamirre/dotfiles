@@ -84,3 +84,7 @@ end)
 
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nowrap ro'
 vim.g.netrw_timefmt = "%Y-%m-%d %H:%M"
+vim.keymap.set("n", "<leader>gg", function()
+	vim.cmd("LazyGit")
+end)
+
