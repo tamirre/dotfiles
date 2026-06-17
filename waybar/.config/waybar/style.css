@@ -3,8 +3,8 @@
 @define-color background #000000;
 
 * {
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 17px;
+    font-family: "JetBrainsMono Nerd Font Mono";
+	font-size: 20px;
     padding: 0;
     margin: 0;
 }
@@ -16,7 +16,7 @@
 
 #workspaces button {
     color: @foreground;
-    padding-left: 0.3em;
+    /* padding-left: 0.2em; */
 }
 
 #workspaces button.empty {
@@ -25,14 +25,16 @@
 
 #memory,
 #temperature {
-    padding-left: 1em
+    /* padding-left: 0.5em */
 }
 
 #cpu {
-    padding-left: 1em
+    /* padding-left: 0.5em */
 }
 #wireplumber,
-#battery,
+#battery {
+    /* font-size: 25px; */
+}
 #backlight,
 #language,
 #network,

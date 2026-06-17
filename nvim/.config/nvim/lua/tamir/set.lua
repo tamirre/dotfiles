@@ -26,7 +26,9 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
--- vim.opt.hlsearch = false
+vim.opt.foldmethod = "syntax"
+vim.opt.foldlevel = 99
+
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -69,14 +71,14 @@ vim.g.fortran_fixed_source = 0
 
 vim.keymap.set("n", "<leader>b", function()
   local file = vim.fn.expand("%")
-  vim.fn.system("tmux send-keys -t :.1 C-c C-m './build.sh' C-m")
+  vim.fn.system("tmux send-keys -t :.1 C-c C-m './src/tools/build.sh' C-m")
 end)
 vim.keymap.set("n", "<leader>r", function()
   local file = vim.fn.expand("%")
   -- vim.fn.system("tmux send-keys -t :.1 C-u './build.sh && ./asteroids' C-m")
   -- vim.fn.system("tmux send-keys -t :.1 -X cancel \\; send-keys -t :.1 './build.sh && ./asteroids' C-m")
   vim.fn.system("tmux copy-mode -q -t :.1")
-  vim.fn.system("tmux send-keys -t :.1 './run.sh' C-m")
+  vim.fn.system("tmux send-keys -t :.1 './src/tools/run.sh' C-m")
   -- vim.fn.system("tmux send-keys -t :.1 C-c C-m './build/mini-monitor' C-m")
   -- vim.fn.system("tmux send-keys -t :.1 C-c './build.sh && ./asteroids' C-m")
 

@@ -37,7 +37,7 @@
     },
 
     "wireplumber": {
-        "format": "\udb81\udd7e  {volume}%",
+        "format": "\udb81\udd7e {volume}% ",
         "max-volume": 100,
         "scroll-step": 5,
         "on-click": "pavucontrol",
@@ -46,27 +46,27 @@
     "battery": {
         "bat": "BAT0",
         "interval": 60,
-        "format": "{icon}  {capacity}%",
+        "format": "{icon} {capacity}% ",
         "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
     },
 
     "backlight": {
-        "format": "\udb80\udcdf  {percent}%"
+        "format": "\udb80\udcdf {percent}% "
     },
 
 	"cpu": {
-		"format": "\uf2db  {usage}%",
+		"format": " \uf2db {usage}% ",
 		"max-length": 10,
 		"interval": 3
 	},
 
     "memory": {
         "interval": 30,
-        "format": "\uf4bc   {used:0.1f}G / {total:0.1f}G"
+        "format": "\uf4bc {used:0.1f}G/{total:0.1f}G "
     },
 
     "temperature": {
-        "format": "  {temperatureC}°C"
+        "format": " {temperatureC}°C "
     },
 
     "network": {
