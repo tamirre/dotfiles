@@ -1,0 +1,141 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader=" "
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set number
+set relativenumber
+set scrolloff=8
+set wrapscan
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+set visualbell
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Navigation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzz
+nnoremap N Nzz
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Move selected lines
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+xnoremap J :vsc Edit.MoveSelectedLinesDown<CR>gv
+xnoremap K :vsc Edit.MoveSelectedLinesUp<CR>gv
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clipboard
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <leader>p "+P
+nnoremap <leader>y "+y
+xnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+
+" Paste from system clipboard
+nnoremap <C-S-v> "+p
+inoremap <C-S-v> <C-r>+
+vnoremap <C-S-v> "+p
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+inoremap <C-c> <Esc>
+nnoremap <C-z> <Nop>
+nnoremap <Esc> :noh<CR><Esc>
+nnoremap Q <Nop>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Visual Studio commands
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Save
+nnoremap <leader>w :w<CR>
+
+" Save all
+nnoremap <leader>W :vsc File.SaveAll<CR>
+
+" Solution Explorer
+nnoremap <leader>pv :vsc View.SolutionExplorer<CR>
+
+" Build
+" nnoremap <leader>b :vsc Build.BuildSolution<CR><Esc>
+nnoremap <leader>b :vsc Build.BuildSolution<CR>:vsc Window.ActivateDocumentWindow<CR>
+
+" Start Debugging
+nnoremap <leader>r :vsc Debug.Start<CR>
+
+" Stop Debugging
+nnoremap <leader>R :vsc Debug.StopDebugging<CR>
+
+" Format Document
+nnoremap <leader>f :vsc Edit.FormatDocument<CR>
+
+" Error List
+nnoremap <leader>e :vsc View.ErrorList<CR>
+
+" Find References
+nnoremap <leader>gr :vsc Edit.FindAllReferences<CR>
+
+" Go To Definition
+nnoremap <leader>gd :vsc Edit.GoToDefinition<CR>
+
+" Peek Definition
+nnoremap <leader>gp :vsc Edit.PeekDefinition<CR>
+
+" Rename
+nnoremap <leader>rn :vsc Refactor.Rename<CR>
+
+" Quick Actions / Code Actions
+nnoremap <leader>ca :vsc View.QuickActions<CR>
+
+" Go to next error
+nnoremap <C-j> :vsc View.NextError<CR>
+
+" Go to previous error (NOTE(two): unmap C-k in VS for this to work!)
+" nnoremap <C-k> :vsc View.PreviousError<CR>
+
+" Next result in Error List
+nnoremap <leader>j :vsc View.NextError<CR>
+
+" Previous result in Error List
+nnoremap <leader>k :vsc View.PreviousError<CR>
+
+" Toggle bookmarks (optional)
+nnoremap <leader>m :vsc Edit.ToggleBookmark<CR>
+
+" Go to file
+nnoremap <leader>fg :vsc Edit.GoToAll<CR>
+
+" Find in files
+nnoremap <leader>pf :vsc VAssistX.OpenFileInSolutionDialog<CR>
+
+" Open Terminal
+nnoremap <leader>st :vsc View.Terminal<CR>
+
+nnoremap <C-w>l :vsc Window.NavigateToNextTabGroup<CR>
+
+" gcc - comment current line
+nnoremap gcc :vsc Edit.ToggleLineComment<CR>gv<Esc>
+
+" gc - comment visual selection
+xnoremap gc :vsc Edit.ToggleLineComment<CR>gv<Esc>
+
