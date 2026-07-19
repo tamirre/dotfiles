@@ -139,3 +139,7 @@ nnoremap gcc :vsc Edit.ToggleLineComment<CR>gv<Esc>
 " gc - comment visual selection
 xnoremap gc :vsc Edit.ToggleLineComment<CR>gv<Esc>
 
+" Because of a bug/new command vsplit has to do other command
+" see https://github.com/VsVim/VsVim/issues/3161
+cnoreabbrev vsplit :vsc Windows.NewTabRight
+
